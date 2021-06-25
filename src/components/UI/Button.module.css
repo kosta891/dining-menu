@@ -1,0 +1,32 @@
+.button {
+  font: inherit;
+  cursor: pointer;
+  color: #1e282f;
+  border: 1px solid #62a5a1;
+  background-color: transparent;
+  height: 50px;
+  padding: 0;
+  border-radius: 4px;
+  margin: 5px;
+}
+
+.button a {
+  width: 100%;
+
+  text-decoration: none;
+  color: inherit;
+  padding: 13px;
+
+  overflow: hidden;
+}
+
+.button:hover,
+.button:active {
+  color: white;
+  transition: 0.3s ease;
+  background-color: #62a5a1;
+  border-color: white;
+}
+li {
+  list-style: none;
+}

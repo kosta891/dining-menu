@@ -1,0 +1,14 @@
+.mealsNav {
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+  overflow: hidden;
+}
+.active {
+  color: white !important;
+  transition: 0.3s ease;
+  background-color: #62a5a1 !important;
+  border-color: white !important;
+}

@@ -1,0 +1,31 @@
+.mealDetail {
+  width: 90%;
+  margin: 0 auto;
+  overflow: hidden;
+}
+.imgDetail {
+  height: 300px;
+  margin: 20px 0;
+}
+.imgDetail img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.mealDetail ul {
+  margin: 10px;
+}
+
+.mealDetail a {
+  color: inherit;
+}
+
+.mealDetail a:hover,
+.mealDetail a:active {
+  transition: 0.3s ease;
+  color: #62a5a1;
+}
+.mealDetail h3 {
+  margin: 10px 0;
+}

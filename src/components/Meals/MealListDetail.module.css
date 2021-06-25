@@ -1,0 +1,48 @@
+.mealListDetail {
+  overflow: hidden;
+  width: 100%;
+  min-width: 320px;
+}
+.mealListDetail ul {
+  width: 90%;
+  margin-top: 10px;
+  flex-direction: row;
+}
+
+.mealListDetail ul li {
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+}
+
+.mealListDetailLink {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  background-color: rgb(222, 230, 231);
+}
+.mealListDetailLink a {
+  color: inherit;
+  text-decoration: none;
+  transition: 0.3s ease;
+  margin: 4px;
+}
+.mealListDetailLink a:hover,
+.mealListDetailLink a:active {
+  transition: 0.3s ease;
+  color: #62a5a1;
+}
+
+.listImage {
+  height: 110px;
+  object-fit: cover;
+  width: 50%;
+  max-width: 500px;
+}
+.mealListDetail img {
+  height: 100%;
+  object-fit: cover;
+  width: 100%;
+}

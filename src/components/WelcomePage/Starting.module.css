@@ -1,0 +1,64 @@
+.bgcImg {
+  z-index: 0;
+  position: absolute;
+  top: 0;
+  min-width: 100vw;
+  min-height: 100vh;
+  overflow: hidden;
+  opacity: 0.8;
+  background-image: url(/src/assets/images/startingImg.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.starting {
+  display: flex;
+  min-width: 100vw;
+  min-height: 100vh;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.startingNav {
+  overflow: hidden;
+
+  background-color: rgba(233, 233, 233, 0.7);
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  width: 320px;
+  height: 320px;
+  border-radius: 30px;
+}
+.startingLogo {
+  text-align: center;
+  text-transform: uppercase;
+  color: #1e282f;
+}
+
+.startingLogo h1 {
+  margin-bottom: 20px;
+}
+
+.buttons {
+  margin: 20px;
+}
+
+@media only screen and (min-width: 768px) {
+  .startingNav {
+    width: 600px;
+    height: 400px;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .startingNav {
+    width: 800px;
+    height: 500px;
+  }
+}

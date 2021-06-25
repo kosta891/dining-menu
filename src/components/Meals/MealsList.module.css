@@ -1,0 +1,6 @@
+.mealsList {
+  width: 250px;
+  display: inline-block;
+  /* overflow: scroll;
+  height: 750px; */
+}
