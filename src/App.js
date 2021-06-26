@@ -1,7 +1,5 @@
-import { useEffect, useState } from 'react';
-import axios from 'axios';
 import { Fragment } from 'react';
-import { Switch, Route, Redirect } from 'react-router';
+import { Switch, Route } from 'react-router';
 
 import Layout from './components/Layout/Layout';
 import Menu from './pages/Menu';
@@ -11,6 +9,7 @@ import NotFound from './pages/NotFound';
 import FoodDetailPage from './pages/FoodDetailPage';
 import FoodListPage from './pages/FoodListPage';
 import FoodListDetail from './pages/FoodListDetail';
+import ScrollToTop from './ScrollToTop';
 
 function App() {
   // za all meals ali dobija se samo 25 jela
@@ -21,18 +20,19 @@ function App() {
         console.log(data2); */
   return (
     <Fragment>
+      <ScrollToTop />
       <Layout>
         <Switch>
           <Route path='/' exact>
             <WelcomePage />
           </Route>
-          <Route path='/menu' exact>
-            <Menu />
-          </Route>
           <Route path='/about' exact>
             <About />
           </Route>
-          <Route path='/menu/:foodlist/' exact>
+          <Route path='/menu' exact>
+            <Menu />
+          </Route>
+          <Route path='/menu/:foodlist' exact>
             <FoodListPage />
           </Route>
           <Route path='/menu/:foodlist/:foodlistsingle' exact>

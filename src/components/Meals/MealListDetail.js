@@ -6,17 +6,9 @@ import { useParams } from 'react-router';
 import classes from './MealListDetail.module.css';
 
 const MealListDetail = (props) => {
-  const { foodlist, foodlistsingle, foodId } = useParams();
+  const { foodlist, foodlistsingle } = useParams();
   const { listFood } = useContext(MealsContext);
-  console.log(foodlist, foodlistsingle, foodId);
-  let errorMsg;
-  if (!listFood) {
-    errorMsg = <p>No data were found!</p>;
-  } else {
-    errorMsg = '';
-  }
 
-  console.log(listFood);
   return (
     <section className={classes.mealListDetail}>
       {listFood &&

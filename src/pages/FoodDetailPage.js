@@ -15,11 +15,22 @@ const FoodDetailPage = () => {
   const {
     foodDetail,
     setFoodDetail,
+
     listFood,
-    foodData,
+    setListFood,
+
     isLoading,
     setIsLoading,
   } = useContext(MealsContext);
+
+  let params;
+
+  if (foodlist === 'category') {
+    params = 'c';
+  }
+  if (foodlist === 'areas') {
+    params = 'a';
+  }
 
   useEffect(() => {
     const getDataFromApi = async () => {
@@ -27,8 +38,14 @@ const FoodDetailPage = () => {
       const fetchData = await axios.get(
         `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${foodId}`
       );
+      const fetchDataPrevios = await axios.get(
+        `https://www.themealdb.com/api/json/v1/1/filter.php?${params}=${foodlistsingle}`
+      );
       const data = fetchData.data.meals;
+      const dataPrevious = fetchDataPrevios.data.meals;
+
       setFoodDetail(data);
+      setListFood(dataPrevious);
       setIsLoading(false);
     };
     try {
@@ -36,21 +53,19 @@ const FoodDetailPage = () => {
     } catch (error) {
       console.log(error);
     }
-  }, [foodlistsingle, foodId]);
+  }, [params, foodlistsingle, foodId]);
 
-  console.log(foodData, 'kkkkkkk', foodlist, isLoading);
-  console.log(Boolean(foodData, 'bbbb', Boolean(foodlist)));
   return (
     <Fragment>
       <MainNavigation />
       <MealsNav />
-      <main style={{ display: 'flex' }}>
-        <MealListDetail />
+      <main style={{ display: 'flex', justifyContent: 'center' }}>
+        {foodDetail ? <MealListDetail /> : <p>No data were found!</p>}
 
         <section>
+          {isLoading && <LoadingSpinner />}
+          {/* {!isLoading && <MealDetail />} */}
           {listFood ? <MealDetail /> : <p>No data were found!</p>}
-          {/*  {isLoading && <LoadingSpinner />}
-          {!isLoading && <MealDetail />} */}
         </section>
       </main>
     </Fragment>

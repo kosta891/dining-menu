@@ -1,11 +1,10 @@
 import React, { useContext } from 'react';
-import { useParams } from 'react-router-dom';
+
 import MealsContext from '../../store/meals-context';
 
 import classes from './MealDetail.module.css';
 
 const MealDetail = () => {
-  const params = useParams();
   const { foodDetail } = useContext(MealsContext);
 
   return (

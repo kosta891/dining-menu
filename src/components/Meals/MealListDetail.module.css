@@ -1,10 +1,9 @@
 .mealListDetail {
   overflow: hidden;
-  width: 100%;
-  min-width: 320px;
+
+  max-width: 600px;
 }
 .mealListDetail ul {
-  width: 90%;
   margin-top: 10px;
   flex-direction: row;
 }

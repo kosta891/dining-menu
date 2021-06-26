@@ -1,6 +1,6 @@
 .spinner {
   display: inline-block;
-  width: 80px;
+  width: 500px;
   height: 80px;
   margin: 40px;
 }
@@ -11,8 +11,8 @@
   height: 50px;
   margin: 8px;
   border-radius: 50%;
-  border: 6px solid #33548b;
-  border-color: #33548b transparent #33548b transparent;
+  border: 6px solid #62a5a1;
+  border-color: #62a5a1 transparent #62a5a1 transparent;
   animation: spinner 1.2s linear infinite;
 }
 @keyframes spinner {

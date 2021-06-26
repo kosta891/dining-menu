@@ -7,7 +7,7 @@ const MealsContext = React.createContext({
   setFoodData: () => {}, //data per category, area
 
   listFood: [],
-  setListFood: () => {}, // list of data of category, area, ingrediants
+  setListFood: () => {}, // list of data of category, area
 
   foodDetail: [],
   setFoodDetail: () => {}, // single data with details

@@ -30,3 +30,14 @@ h3 {
 a {
   text-decoration: none;
 }
+
+.flexAbout {
+  max-width: 1197px;
+  margin: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.flexAbout h1 {
+  margin-bottom: 50px;
+}

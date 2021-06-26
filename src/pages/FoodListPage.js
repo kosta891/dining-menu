@@ -65,10 +65,11 @@ const FoodListPage = (props) => {
     <div>
       <MainNavigation />
       <MealsNav />
-
-      {errorMsg}
-      {mealsCtx.isLoading && <LoadingSpinner />}
-      {!mealsCtx.isLoading && <MealsList />}
+      <section style={{ marginLeft: '100px' }}>
+        {errorMsg}
+        {mealsCtx.isLoading && <LoadingSpinner />}
+        {!mealsCtx.isLoading && <MealsList />}
+      </section>
     </div>
   );
 };
