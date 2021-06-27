@@ -25,15 +25,33 @@ const FoodListDetail = (props) => {
   useEffect(() => {
     const getDataHandler = async () => {
       mealsCtx.setIsLoading(true);
+
       const fetchData = await axios.get(
         `https://www.themealdb.com/api/json/v1/1/filter.php?${params}=${foodlistsingle}`
       );
       const data = fetchData.data.meals;
 
+      mealsCtx.setListFood(data);
+      mealsCtx.setIsLoading(false);
+    };
+
+    try {
+      getDataHandler();
+    } catch (error) {
+      console.log(error);
+    }
+  }, [foodlistsingle, foodId]);
+
+  useEffect(() => {
+    const getPreviousData = async () => {
+      mealsCtx.setIsLoading(true);
+
       const fetchPreviousData = await axios.get(
         `https://www.themealdb.com/api/json/v1/1/list.php?${params}=list`
       );
+
       const dataPrevious = await fetchPreviousData.data.meals;
+
       const dataChanged =
         dataPrevious &&
         dataPrevious.map((item) => {
@@ -43,18 +61,14 @@ const FoodListDetail = (props) => {
         });
 
       mealsCtx.setFoodData(dataChanged);
-
-      mealsCtx.setListFood(data);
-
       mealsCtx.setIsLoading(false);
     };
-
     try {
-      getDataHandler();
+      getPreviousData();
     } catch (error) {
       console.log(error);
     }
-  }, [foodlist, foodlistsingle, foodId]);
+  }, [foodlist]);
 
   let errorMsg;
   if (!mealsCtx.foodData || !mealsCtx.listFood) {
@@ -67,7 +81,8 @@ const FoodListDetail = (props) => {
       <MealsNav />
       {errorMsg}
       <div style={{ display: 'flex', justifyContent: 'center' }}>
-        <MealsList />
+        {window.innerWidth >= 768 && mealsCtx.listFood && <MealsList />}
+        {/* {mealsCtx.listFood && <MealsList />} */}
         {mealsCtx.isLoading && <LoadingSpinner />}
         {!mealsCtx.isLoading && <MealListDetail />}
       </div>

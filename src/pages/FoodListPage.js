@@ -25,7 +25,7 @@ const FoodListPage = (props) => {
       if (
         foodlist === 'category' ||
         foodlist === 'areas' ||
-        foodlist === 'allMeals'
+        foodlist === 'allmeals'
       ) {
         mealsCtx.setIsLoading(true);
 
@@ -54,7 +54,7 @@ const FoodListPage = (props) => {
   if (
     foodlist !== 'category' &&
     foodlist !== 'areas' &&
-    foodlist !== 'allMeals'
+    foodlist !== 'allmeals'
   ) {
     errorMsg = 'No data were found!';
   } else {

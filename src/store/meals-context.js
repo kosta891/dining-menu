@@ -20,10 +20,9 @@ export const MealsContextProvider = (props) => {
   const [foodData, setFoodData] = useState([]);
 
   const [listFood, setListFood] = useState([]);
-
   const [foodDetail, setFoodDetail] = useState([]);
 
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState();
 
   const mealsValue = {
     foodData: foodData,

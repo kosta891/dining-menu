@@ -7,20 +7,21 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
+  padding: 0 10px;
 }
 .logo {
-  width: 150px;
   font-size: 32px;
   font-weight: bold;
 }
 .nav {
-  width: 200px;
+  max-width: 200px;
 }
 .nav ul {
   color: white;
   display: flex;
   justify-content: space-around;
   align-items: center;
+  padding: 0;
 }
 .nav ul li {
   list-style: none;
@@ -48,5 +49,8 @@
 @media only screen and (max-width: 576px) {
   .logo {
     font-size: 24px;
+  }
+  .nav ul li a {
+    margin: 5px;
   }
 }

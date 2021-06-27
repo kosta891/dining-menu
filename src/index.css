@@ -7,7 +7,7 @@
 
 body {
   font-family: 'Open Sans', 'Lato', sans-serif;
-
+  color: #1e282f;
   background-color: #e9e9e9;
 }
 
@@ -40,4 +40,10 @@ a {
 }
 .flexAbout h1 {
   margin-bottom: 50px;
+}
+
+@media screen and (max-width: 768px) {
+  ul {
+    padding: 0 20px;
+  }
 }

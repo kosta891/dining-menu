@@ -3,11 +3,8 @@ import { NavLink } from 'react-router-dom';
 import classes from './MealsNav.module.css';
 
 import Button from '../UI/Button';
-import { useParams } from 'react-router';
 
 const MealsNav = () => {
-  const params = useParams();
-  console.log(params);
   return (
     <Fragment>
       <div className={classes.mealsNav}>

@@ -38,14 +38,9 @@ const FoodDetailPage = () => {
       const fetchData = await axios.get(
         `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${foodId}`
       );
-      const fetchDataPrevios = await axios.get(
-        `https://www.themealdb.com/api/json/v1/1/filter.php?${params}=${foodlistsingle}`
-      );
       const data = fetchData.data.meals;
-      const dataPrevious = fetchDataPrevios.data.meals;
 
       setFoodDetail(data);
-      setListFood(dataPrevious);
       setIsLoading(false);
     };
     try {
@@ -53,15 +48,35 @@ const FoodDetailPage = () => {
     } catch (error) {
       console.log(error);
     }
-  }, [params, foodlistsingle, foodId]);
+  }, [foodId]);
+
+  useEffect(() => {
+    const getPreviousData = async () => {
+      setIsLoading(true);
+
+      const fetchDataPrevios = await axios.get(
+        `https://www.themealdb.com/api/json/v1/1/filter.php?${params}=${foodlistsingle}`
+      );
+      const dataPrevious = fetchDataPrevios.data.meals;
+
+      setListFood(dataPrevious);
+
+      setIsLoading(false);
+    };
+    try {
+      getPreviousData();
+    } catch (error) {
+      console.log(error);
+    }
+  }, [params, foodlistsingle]);
 
   return (
     <Fragment>
       <MainNavigation />
       <MealsNav />
       <main style={{ display: 'flex', justifyContent: 'center' }}>
-        {foodDetail ? <MealListDetail /> : <p>No data were found!</p>}
-
+        {window.innerWidth >= 768 && foodDetail && <MealListDetail />}
+        {!foodDetail && <p>No data were found!</p>}
         <section>
           {isLoading && <LoadingSpinner />}
           {/* {!isLoading && <MealDetail />} */}
