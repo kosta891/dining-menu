@@ -14,6 +14,19 @@ const MealsContext = React.createContext({
 
   isLoading: false,
   setIsLoading: () => {},
+  ////////////////////////////////////////
+
+  foodDataCategory: [],
+  setFoodDataCategory: () => {},
+
+  foodDataNational: [],
+  setFoodDataNational: () => {},
+
+  showMenuIcon: false,
+  setShowMenuIcon: () => {},
+
+  addClass: false,
+  setAddClass: () => {},
 });
 
 export const MealsContextProvider = (props) => {
@@ -24,18 +37,42 @@ export const MealsContextProvider = (props) => {
 
   const [isLoading, setIsLoading] = useState();
 
+  /////////////////////////////////////////
+
+  const [foodDataCategory, setFoodDataCategory] = useState();
+  const [foodDataNational, setFoodDataNational] = useState();
+
+  const [showMenuIcon, setShowMenuIcon] = useState();
+  const [addClass, setAddClass] = useState(false);
+
   const mealsValue = {
-    foodData: foodData,
-    setFoodData: setFoodData,
+    foodData,
+    setFoodData,
 
-    listFood: listFood,
-    setListFood: setListFood,
+    listFood,
+    setListFood,
 
-    foodDetail: foodDetail,
-    setFoodDetail: setFoodDetail,
+    foodDetail,
+    setFoodDetail,
 
-    isLoading: isLoading,
-    setIsLoading: setIsLoading,
+    isLoading,
+    setIsLoading,
+
+    ///////////////////////////////////
+
+    foodDataCategory,
+    setFoodDataCategory,
+
+    foodDataNational,
+    setFoodDataNational,
+
+    ///////////////////////////////
+
+    showMenuIcon,
+    setShowMenuIcon,
+
+    addClass,
+    setAddClass,
   };
 
   return (

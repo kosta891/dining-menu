@@ -13,6 +13,9 @@
   font-size: 32px;
   font-weight: bold;
 }
+.logo a {
+  color: white;
+}
 .nav {
   max-width: 200px;
 }

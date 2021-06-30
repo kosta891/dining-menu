@@ -1,14 +1,131 @@
+.sideHeader {
+  width: 100%;
+  position: relative;
+  top: 0;
+  left: 0;
+}
 .mealsNav {
   width: 100%;
+  max-width: 1170px;
   margin: 0 auto;
-  display: flex;
-  justify-content: center;
-  margin: 20px 0;
-  overflow: hidden;
+  padding: 0 15px;
 }
+.menuSideIcons {
+  color: #eee;
+  font-size: 30px;
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+  cursor: pointer;
+  z-index: 210;
+  display: none;
+}
+.mealsNav nav {
+  width: 100%;
+  height: 80px;
+  border-bottom: 1px solid rgba(98, 165, 161, 0.2);
+}
+
+.navListSide {
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.navListSide li {
+  line-height: 80px;
+  position: relative;
+  margin-right: 0px;
+  width: 200px;
+  text-align: center;
+}
+
+.navListSide a {
+  display: block;
+  color: #1e282f;
+  padding: 0 15px;
+  transition: all 0.3s ease;
+}
+.navListSide a:hover,
+.navListSide a:active {
+  color: white;
+  background-color: #62a5a1;
+}
+.navListSide li:hover {
+  color: white;
+  background-color: #62a5a1;
+}
+.navListSide li:hover > .submenu {
+  opacity: 1;
+  visibility: visible;
+  position: relative;
+}
+
+.submenu {
+  display: block;
+  position: absolute;
+  margin: 0;
+  padding: 0;
+
+  z-index: 200;
+
+  transition: all 0.3 ease;
+  background-color: rgb(230, 230, 230);
+  opacity: 0;
+  visibility: hidden;
+  text-align: center;
+}
+.submenu li {
+  display: block;
+  line-height: 40px;
+  margin-right: 0;
+  width: 100%;
+}
+
 .active {
   color: white !important;
   transition: 0.3s ease;
   background-color: #62a5a1 !important;
   border-color: white !important;
 }
+
+@media screen and (max-width: 992px) {
+  .navListSide {
+    opacity: 0;
+    position: fixed;
+    top: 80px;
+    left: 0;
+    flex-direction: column;
+    height: 100vh;
+    z-index: 200;
+    background-color: #e9e9e9;
+    align-items: initial;
+    pointer-events: none;
+    transition: all 1 ease;
+    width: 100%;
+    border-bottom: 0;
+    overflow: auto;
+  }
+  .navListSide.activeNav {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: all;
+    transition: opacity 1 ease;
+  }
+  .navListSide li:hover > .submenu {
+    opacity: 1;
+    visibility: visible;
+    max-height: initial;
+  }
+  .menuSideIcons {
+    display: block;
+    color: #62a5a1;
+  }
+  .navListSide li {
+    text-align: center;
+  }
+}
+
+/* background-color: #62a5a1;
+  color: #1e282f; */

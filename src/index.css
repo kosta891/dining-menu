@@ -47,3 +47,7 @@ a {
     padding: 0 20px;
   }
 }
+
+.hidden {
+  overflow: hidden;
+}

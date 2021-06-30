@@ -63,13 +63,14 @@ const FoodListPage = (props) => {
 
   return (
     <div>
-      <MainNavigation />
+      {/*  <MainNavigation />
       <MealsNav />
       <section style={{ marginLeft: '100px' }}>
         {errorMsg}
         {mealsCtx.isLoading && <LoadingSpinner />}
         {!mealsCtx.isLoading && <MealsList />}
-      </section>
+      </section> */}
+      brisano
     </div>
   );
 };

@@ -4,33 +4,23 @@ import axios from 'axios';
 
 import MainNavigation from '../components/Layout/MainNavigation';
 import MealsNav from '../components/Meals/MealsNav';
-import MealListDetail from '../components/Meals/MealListDetail';
+
 import MealDetail from '../components/Meals/MealDetail';
 import MealsContext from '../store/meals-context';
 import LoadingSpinner from '../components/UI/LoadingSpinner';
 
 const FoodDetailPage = () => {
-  const { foodlist, foodlistsingle, foodId } = useParams();
+  const { foodId } = useParams();
 
   const {
     foodDetail,
     setFoodDetail,
 
     listFood,
-    setListFood,
 
     isLoading,
     setIsLoading,
   } = useContext(MealsContext);
-
-  let params;
-
-  if (foodlist === 'category') {
-    params = 'c';
-  }
-  if (foodlist === 'areas') {
-    params = 'a';
-  }
 
   useEffect(() => {
     const getDataFromApi = async () => {
@@ -50,36 +40,15 @@ const FoodDetailPage = () => {
     }
   }, [foodId]);
 
-  useEffect(() => {
-    const getPreviousData = async () => {
-      setIsLoading(true);
-
-      const fetchDataPrevios = await axios.get(
-        `https://www.themealdb.com/api/json/v1/1/filter.php?${params}=${foodlistsingle}`
-      );
-      const dataPrevious = fetchDataPrevios.data.meals;
-
-      setListFood(dataPrevious);
-
-      setIsLoading(false);
-    };
-    try {
-      getPreviousData();
-    } catch (error) {
-      console.log(error);
-    }
-  }, [params, foodlistsingle]);
-
   return (
     <Fragment>
       <MainNavigation />
       <MealsNav />
       <main style={{ display: 'flex', justifyContent: 'center' }}>
-        {window.innerWidth >= 768 && foodDetail && <MealListDetail />}
         {!foodDetail && <p>No data were found!</p>}
         <section>
           {isLoading && <LoadingSpinner />}
-          {/* {!isLoading && <MealDetail />} */}
+
           {listFood ? <MealDetail /> : <p>No data were found!</p>}
         </section>
       </main>
